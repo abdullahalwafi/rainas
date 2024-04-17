@@ -170,6 +170,11 @@ header.fixed-top.scrolled {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.logo {
+  img {
+    height: 50px;
+  }
+}
 
 @media screen and (max-width: 768px) {
   #banner {
@@ -189,12 +194,5 @@ header.fixed-top.scrolled {
   }
   .title-timeline {
     font-size: 2rem;
-  }
-  .navbar {
-    & .logo {
-      img {
-        height: 10px;
-      }
-    }
   }
 }
