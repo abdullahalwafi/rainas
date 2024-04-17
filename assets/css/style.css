@@ -157,6 +157,11 @@ section {
   background-color: #ff8800;
 }
 
+.bg-default {
+  background-color: #ff8800;
+
+}
+
 @media screen and (max-width: 768px) {
   #banner {
     & .banner-right {
