@@ -18,37 +18,110 @@ root {
     }
   }
 }
+section {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #banner {
   background-image: url("../img/banner.png");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  color: #fff;
+}
+.banner-right {
+  margin-top: 100px;
+  & h2 {
+    line-height: 0.5ch;
+    font-size: 2.5rem;
+  }
+  & h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  & p {
+    font-size: 1.2rem;
+  }
+}
+.banner-left {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  & .banner-right {
-    margin-top: 100px;
-    & h2 {
-      line-height: 0.5ch;
-      font-size: 2.5rem;
-    }
-    & h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-    & p {
-      font-size: 1.2rem;
-    }
+  & img {
+    height: 450px;
   }
-  & .banner-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & img {
-      height: 450px;
-    }
-  }
+}
+.title {
+  color: #ff8800;
+  font-weight: bold;
+}
+
+#timeline {
+  background-color: #ff8800dc;
+}
+
+.timeline {
+  width: 20rem;
+  height: 229px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.timeline-head {
+  height: 72px;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.timeline-date {
+  height: 72px;
+  background: rgba(25, 25, 25, 1);
+  padding: 24px 32px;
+  margin: 12px;
+  top: 0px;
+  left: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.timeline-border {
+  width: 5rem;
+  height: 2px;
+  background: rgba(25, 25, 25, 1);
+  top: 35px;
+  left: 183px;
+  margin-left: -15px;
+}
+.timeline-body {
+  height: 153px;
+  margin: 10px;
+  top: 76px;
+  left: 0px;
+}
+.timeline-content {
+  height: 170px;
+  background: rgba(247, 247, 247, 1);
+  padding: 20px;
+  margin: 12px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.title-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 3rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -56,11 +129,18 @@ root {
     & .banner-right {
       margin-top: 0;
       & h2 {
+        font-size: 2rem;
         line-height: 1ch;
+      }
+      & h1 {
+        font-size: 2.5rem;
       }
     }
     & .banner-left {
       display: none;
     }
+  }
+  .title-timeline {
+    font-size: 2rem;
   }
 }
