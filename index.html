@@ -193,15 +193,34 @@
       </div>
     </section>
 
-    <section class="py-5">
-      <h1>Informasi Cuaca</h1>
-      <form onsubmit="getWeather(); return false;">
-        <div class="flex-center">
-          <input type="text" id="city" placeholder="Masukkan nama kota..." class="form-control">
-          <input type="submit" value="Lihat Cuaca" class="btn btn-primary btn-sm">
+    <section class="py-5" id="cuaca">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1>Informasi Cuaca</h1>
+            <p>Cari dan persiapkan diri anda untuk cuaca yang akan datang</p>
+            <form onsubmit="getWeather(); return false;">
+              <div class="flex-center">
+                <input
+                  type="text"
+                  id="city"
+                  placeholder="Masukkan nama kota..."
+                  class="form-control"
+                />
+                <input
+                  type="submit"
+                  value="Lihat Cuaca"
+                  class="btn btn-primary btn-sm"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <h3 id="Hasilcity"></h3>
+            <div id="weather-data" class="weather-container mt-2"></div>
+          </div>
         </div>
-      </form>
-      <div id="weather-data"></div>
+      </div>
     </section>
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -230,17 +249,51 @@
         if (city === "") {
           city = "Jakarta";
         }
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+        document.getElementById(
+          "Hasilcity"
+        ).innerHTML = `Hasil cuaca untuk kota ${city}`;
+        const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
         fetch(apiUrl)
           .then((response) => response.json())
           .then((data) => {
-            const weatherData = `
-                        <p>Kota: ${data.name}</p>
-                        <p>Cuaca: ${data.weather[0].description}</p>
-                        <p>Suhu: ${data.main.temp-273.15.toFixed(2)} °C</p>
-                    `;
-            document.getElementById("weather-data").innerHTML = weatherData;
+            const weatherDataContainer =
+              document.getElementById("weather-data");
+            weatherDataContainer.innerHTML = "";
+
+            // Ambil data untuk 6 jam ke depan
+            const forecastData = data.list.slice(0, 4); 
+
+            forecastData.forEach((forecast, index) => {
+              // Mendapatkan waktu ramalan cuaca
+              const timestamp = new Date(forecast.dt * 1000); // Konversi dari detik ke milidetik
+              const hours = timestamp.getHours();
+              const minutes = timestamp.getMinutes();
+              const timeString = `${hours < 10 ? "0" : ""}${hours}:${
+                minutes < 10 ? "0" : ""
+              }${minutes}`;
+
+              // Mendapatkan ikon cuaca dari data cuaca saat ini
+              const icon = forecast.weather[0].icon;
+              // Membuat URL ikon cuaca dari kode ikon
+              const img = `http://openweathermap.org/img/wn/${icon}.png`;
+
+              // Menghitung suhu dalam Celsius
+              const suhuCelsius = (forecast.main.temp - 273.15).toFixed(2);
+
+              // Membuat elemen untuk menampilkan informasi cuaca
+              const weatherInfo = document.createElement("div");
+              weatherInfo.classList.add("weather-info");
+              weatherInfo.innerHTML = `
+                    <p>Waktu: ${timeString}</p>
+                    <p>Cuaca: ${forecast.weather[0].description}</p>
+                    <img src="${img}" alt="weather-icon" />
+                    <p>Suhu: ${suhuCelsius} °C</p>
+                `;
+
+              // Tambahkan elemen informasi cuaca ke kontainer
+              weatherDataContainer.appendChild(weatherInfo);
+            });
           })
           .catch((error) => console.log("Error fetching weather data:", error));
       }

@@ -129,6 +129,29 @@ section {
   display: flex;
   justify-content: center;
 }
+.weather-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.weather-info {
+  background-color: #ff8800;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.weather-info p {
+  margin: 5px 0;
+}
+
+.weather-info img {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
 
 @media screen and (max-width: 768px) {
   #banner {
