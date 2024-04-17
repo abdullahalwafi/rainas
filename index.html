@@ -192,6 +192,17 @@
         </div>
       </div>
     </section>
+
+    <section class="py-5">
+      <h1>Informasi Cuaca</h1>
+      <form onsubmit="getWeather(); return false;">
+        <div class="flex-center">
+          <input type="text" id="city" placeholder="Masukkan nama kota..." class="form-control">
+          <input type="submit" value="Lihat Cuaca" class="btn btn-primary btn-sm">
+        </div>
+      </form>
+      <div id="weather-data"></div>
+    </section>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -211,5 +222,30 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const apiKey = "1fe5f03e8b679377cbc41601289edfdd";
+
+      function getWeather() {
+        let city = document.getElementById("city").value;
+        if (city === "") {
+          city = "Jakarta";
+        }
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const weatherData = `
+                        <p>Kota: ${data.name}</p>
+                        <p>Cuaca: ${data.weather[0].description}</p>
+                        <p>Suhu: ${data.main.temp-273.15.toFixed(2)} °C</p>
+                    `;
+            document.getElementById("weather-data").innerHTML = weatherData;
+          })
+          .catch((error) => console.log("Error fetching weather data:", error));
+      }
+
+      window.onload = getWeather;
+    </script>
   </body>
 </html>

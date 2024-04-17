@@ -23,6 +23,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 #banner {
   background-image: url("../img/banner.png");
@@ -122,6 +123,11 @@ section {
   align-items: center;
   font-weight: bold;
   font-size: 3rem;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 768px) {
