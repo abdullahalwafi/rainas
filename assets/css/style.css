@@ -195,4 +195,7 @@ header.fixed-top.scrolled {
   .title-timeline {
     font-size: 2rem;
   }
+  .logo img {
+    height: 40px;
+  }
 }
