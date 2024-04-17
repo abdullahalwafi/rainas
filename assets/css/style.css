@@ -118,6 +118,7 @@ section {
 }
 
 .title-timeline {
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,7 +160,15 @@ section {
 
 .bg-default {
   background-color: #ff8800;
-
+}
+header.fixed-top {
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+  z-index: 1000; 
+}
+header.fixed-top.scrolled {
+  background-color: #ffffff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 @media screen and (max-width: 768px) {

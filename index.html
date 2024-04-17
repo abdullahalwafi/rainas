@@ -17,7 +17,7 @@
     <title>Raimuna Nasional</title>
   </head>
   <body>
-    <header>
+    <header class="fixed-top" id="main-header">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <a class="navbar-brand" href="#">
@@ -45,13 +45,25 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Tentang Kami</a>
+                <a class="nav-link" href="#about">Tentang</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Kontak</a>
+                <a class="nav-link" href="#jenis-kegiatan">Jenis Kegiatan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="#timeline">Jadwal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#cuaca">Informasi Cuaca</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#sarana">Sarana Prasarana</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#news">Berita</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Kontak</a>
               </li>
             </ul>
           </div>
@@ -60,7 +72,7 @@
     </header>
 
     <section id="banner" class="py-5">
-      <div class="container">
+      <div class="container pt-5">
         <div class="row">
           <div class="col-md-6">
             <div class="banner-right">
@@ -126,7 +138,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h3 class="title-timeline">Jenis Kegiatan</h3>
+            <h3 class="title-timeline" style="color: #ff8800;">Jenis Kegiatan</h3>
           </div>
           <div class="col-md-6">
             <ol>
@@ -444,24 +456,55 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h3 class="title-timeline">Berita Terbaru</h3>
+            <h3 class="title-timeline" style="color: #ff8800;">Berita Terbaru</h3>
           </div>
           <div class="col-md-4">
             <div class="card">
               <img
-                src="assets/img/berita1.jpg"
+                src="https://via.placeholder.com/200x100"
                 class="card-img-top"
                 alt="..."
               />
               <div class="card-body">
-                <h5 class="card-title mb-0">Berita 1</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </p>
-                <a href="#" class="btn btn-primary">Selengkapnya</a>
+                <p class="card-title mb-0">Meriahkan Malam Rainas, YCT Kontingen Jawa Barat Sukses Membuat Penonton Terpukau
+                <br>
+                  <a href="#" class="btn btn-primary">Selengkapnya</a>
               </div>
             </div>
           </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/200x100"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <p class="card-title mb-0">Meriahkan Malam Rainas, YCT Kontingen Jawa Barat Sukses Membuat Penonton Terpukau
+                <br>
+                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/200x100"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <p class="card-title mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <a href="#" class="btn btn-primary">Selengkapnya</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 flex-center mt-3">
+            <a href="#" class="btn btn-primary">Liat Semua berita</a>
+          </div>
+          
         </div>
       </div>
     </section>
@@ -532,6 +575,7 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
     <script src="assets/js/script.js"></script>
   </body>
 </html>

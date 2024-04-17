@@ -60,3 +60,13 @@ function getWeather() {
 }
 
 window.onload = getWeather;
+
+$(document).ready(function () {
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $("#main-header").addClass("scrolled");
+    } else {
+      $("#main-header").removeClass("scrolled");
+    }
+  });
+});
