@@ -153,6 +153,10 @@ section {
   margin: 0 auto;
 }
 
+#sarana-prasarana {
+  background-color: #ff8800;
+}
+
 @media screen and (max-width: 768px) {
   #banner {
     & .banner-right {
